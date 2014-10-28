@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+
   resources :beetles
 
-=======
->>>>>>> master
   # get 'pages/home'
   root 'pages#home'
   get 'about' => 'pages#about'
