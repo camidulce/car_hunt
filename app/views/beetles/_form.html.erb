@@ -1,0 +1,45 @@
+<%= form_for(@beetle) do |f| %>
+  <% if @beetle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@beetle.errors.count, "error") %> prohibited this beetle from being saved:</h2>
+
+      <ul>
+      <% @beetle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nickname %><br>
+    <%= f.text_field :nickname %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.date_select :year %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br>
+    <%= f.text_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :engine %><br>
+    <%= f.text_field :engine %>
+  </div>
+  <div class="field">
+    <%= f.label :interior %><br>
+    <%= f.text_field :interior %>
+  </div>
+  <div class="field">
+    <%= f.label :picture %><br>
+    <%= f.text_field :picture %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

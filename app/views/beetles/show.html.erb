@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @beetle.user.email if @beetle.user %>
+</p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @beetle.nickname %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @beetle.zip %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @beetle.year %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @beetle.color %>
+</p>
+
+<p>
+  <strong>Engine:</strong>
+  <%= @beetle.engine %>
+</p>
+
+<p>
+  <strong>Interior:</strong>
+  <%= @beetle.interior %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @beetle.picture %>
+</p>
+
+<%= link_to 'Edit', edit_beetle_path(@beetle) %> |
+<%= link_to 'Back', beetles_path %>

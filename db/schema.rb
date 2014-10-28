@@ -11,11 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20141028181909) do
+=======
 ActiveRecord::Schema.define(version: 20141027183536) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
+  create_table "beetles", force: true do |t|
+    t.string   "nickname"
+    t.string   "zip"
+    t.date     "year"
+    t.string   "color"
+    t.string   "engine"
+    t.string   "interior"
+    t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "beetles", ["user_id"], name: "index_beetles_on_user_id", using: :btree
+
+=======
+>>>>>>> master
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
