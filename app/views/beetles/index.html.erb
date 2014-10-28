@@ -1,0 +1,37 @@
+<h1>Listing beetles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nickname</th>
+      <th>Zip</th>
+      <th>Year</th>
+      <th>Color</th>
+      <th>Engine</th>
+      <th>Interior</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beetles.each do |beetle| %>
+      <tr>
+        <td><%= beetle.nickname %></td>
+        <td><%= beetle.zip %></td>
+        <td><%= beetle.year %></td>
+        <td><%= beetle.color %></td>
+        <td><%= beetle.engine %></td>
+        <td><%= beetle.interior %></td>
+        <td><%= beetle.picture %></td>
+        <td><%= link_to 'Show', beetle %></td>
+        <td><%= link_to 'Edit', edit_beetle_path(beetle) %></td>
+        <td><%= link_to 'Destroy', beetle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Beetle', new_beetle_path %>
