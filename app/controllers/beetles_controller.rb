@@ -44,10 +44,23 @@ class BeetlesController < ApplicationController
     end
   end
 
+  def index
+    if params[:search]
+      @beetles = Beetle.search(params[:search]).order("created_at DESC")
+    else
+      @beetles = Beetle.all.order('created_at DESC')
+    end
+  end
+
   private
     def set_beetle
       @beetle = Beetle.find(params[:id])
     end
+
+    # def correct_user
+    #   @beetle = current_user.Beetle.find_by(id: params[:id])
+    #   redirect_to beetles_path, notice: "Not authorized to edit this beetle" if @beetle.nil?
+    # end
 
     def beetle_params
       params.require(:beetle).permit(:nickname, :zip, :type, :year, :color, :engine, :interior, :picture)
