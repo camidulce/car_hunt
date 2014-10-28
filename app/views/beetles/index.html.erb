@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>User</th>
       <th>Nickname</th>
       <th>Zip</th>
       <th>Year</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @beetles.each do |beetle| %>
       <tr>
+        <td><%= beetle.user.email if beetle.user %></td>
         <td><%= beetle.nickname %></td>
         <td><%= beetle.zip %></td>
         <td><%= beetle.year %></td>

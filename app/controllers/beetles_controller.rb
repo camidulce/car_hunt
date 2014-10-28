@@ -21,6 +21,7 @@ class BeetlesController < ApplicationController
   def create
     @beetle = Beetle.new(beetle_params)
     if @beetle.save
+      current_user.beetles << @beetle
      redirect_to @beetle, notice: "Successfully Created"
    else
       render :new, notice: "Beetle did not save"

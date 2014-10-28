@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>User:</strong>
+  <%= @beetle.user.email if @beetle.user %>
+</p>
+
+<p>
   <strong>Nickname:</strong>
   <%= @beetle.nickname %>
 </p>
