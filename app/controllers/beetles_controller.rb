@@ -44,14 +44,6 @@ class BeetlesController < ApplicationController
     end
   end
 
-  # def index
-  #   if params[:search]
-  #     @beetles = Beetle.search(params[:search]).order("created_at DESC")
-  #   else
-  #     @beetles = Beetle.all.order('created_at DESC')
-  #   end
-  # end
-
   def index
     if params[:search].present?
       @beetles = Beetle.near(params[:search], 50)
