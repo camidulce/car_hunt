@@ -5,7 +5,7 @@
     <tr>
       <th>User</th>
       <th>Nickname</th>
-      <th>Zip</th>
+      <th>Address</th>
       <th>Year</th>
       <th>Color</th>
       <th>Engine</th>
@@ -16,11 +16,12 @@
   </thead>
 
   <tbody>
+
     <% @beetles.each do |beetle| %>
       <tr>
         <td><%= beetle.user.email if beetle.user %></td>
         <td><%= beetle.nickname %></td>
-        <td><%= beetle.zip %></td>
+        <td><%= beetle.address %></td>
         <td><%= beetle.year %></td>
         <td><%= beetle.color %></td>
         <td><%= beetle.engine %></td>
@@ -30,6 +31,7 @@
         <td><%= link_to 'Edit', edit_beetle_path(beetle) %></td>
         <td><%= link_to 'Destroy', beetle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+
     <% end %>
   </tbody>
 </table>

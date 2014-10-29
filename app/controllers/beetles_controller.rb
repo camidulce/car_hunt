@@ -45,10 +45,10 @@ class BeetlesController < ApplicationController
   end
 
   def index
-    if params[:search]
-      @beetles = Beetle.search(params[:search]).order("created_at DESC")
+    if params[:search].present?
+      @beetles = Beetle.near(params[:search], 50)
     else
-      @beetles = Beetle.all.order('created_at DESC')
+      @beetles = Beetle.all
     end
   end
 
@@ -63,6 +63,6 @@ class BeetlesController < ApplicationController
     # end
 
     def beetle_params
-      params.require(:beetle).permit(:nickname, :zip, :type, :year, :color, :engine, :interior, :picture)
+      params.require(:beetle).permit(:nickname, :address, :latitude, :longitude, :zip, :type, :year, :color, :engine, :interior, :picture)
     end
 end

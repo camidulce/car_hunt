@@ -16,12 +16,12 @@
     <%= f.text_field :nickname %>
   </div>
   <div class="field">
-    <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
   </div>
   <div class="field">
     <%= f.label :year %><br>
-    <%= f.date_select :year %>
+    <%= f.date_select :year, {:start_year => Time.now.year - 40, :end_year => Time.now.year, :discard_day => true, :discard_month => true } %>
   </div>
   <div class="field">
     <%= f.label :color %><br>
@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :engine %><br>
-    <%= f.text_field :engine %>
+    <%= f.select :engine, ['Gas', 'Diesel'] %>
   </div>
   <div class="field">
     <%= f.label :interior %><br>
-    <%= f.text_field :interior %>
+    <%= f.select :interior, ['original','refurbished'] %>
   </div>
   <div class="field">
     <%= f.label :picture %><br>

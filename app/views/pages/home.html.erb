@@ -1,10 +1,13 @@
 <!-- <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p> -->
 <p>
-<%= form_tag(beetles_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Beetle" %>
-  <%= submit_tag "Search", :name => nil %>
+  <%= form_tag(beetles_path, :method => "get", id: "search-form") do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: "Boston, MA" %>
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
 <% end %>
+
 </p>
 
 <p>
