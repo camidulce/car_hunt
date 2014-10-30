@@ -77,5 +77,16 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Required fro Heroku; change the host to the actual Heroku host
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'fathomless-headland-1252.herokuapp.com' }
+
+  #sets paperclip to upload images to Amazon S3
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['AWS_BUCKET'],
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
+
 end
