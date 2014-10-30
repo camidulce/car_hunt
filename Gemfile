@@ -32,6 +32,8 @@ gem 'geocoder', '~> 1.2.5'
 
 gem 'rails_12factor'
 
+gem 'paperclip', '~> 4.2.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
