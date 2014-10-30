@@ -4,7 +4,7 @@ class BeetlesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @beetles = Beetle.all
+    @beetles = Beetle.order(created_at: :asc)
     # respond_with(@beetles)
   end
 
@@ -50,7 +50,7 @@ class BeetlesController < ApplicationController
     if params[:search].present?
       @beetles = Beetle.near(params[:search], 50)
     else
-      @beetles = Beetle.all
+      @beetles = Beetle.order(created_at: :desc)
     end
   end
 

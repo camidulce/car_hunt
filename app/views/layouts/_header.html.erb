@@ -10,3 +10,13 @@
   </p>
   <% end %>
 </ul>
+
+<p>
+  <%= form_tag(beetles_path, :method => "get", id: "search-form") do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: "Boston, MA" %>
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
+<% end %>
+
+</p>

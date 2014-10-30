@@ -2,17 +2,9 @@
 <p>Find me in app/views/pages/home.html.erb</p> -->
 <h1>Welcome to my Beetle Hunt app!</h1>
 
-
-<p>
-  <%= form_tag(beetles_path, :method => "get", id: "search-form") do %>
-  <p>
-    <%= text_field_tag :search, params[:search], placeholder: "Boston, MA" %>
-    <%= submit_tag "Search Near", :name => nil %>
-  </p>
+<% if current_user %>
+<%= link_to "See the Beetles", beetles_path %>
 <% end %>
-
-</p>
-
 
 
 
