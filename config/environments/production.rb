@@ -76,7 +76,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Required fro Heroku; change the host to the actual Heroku host
+  # Required for Heroku; change the host to the actual Heroku host
   config.action_mailer.default_url_options = { :host => 'fathomless-headland-1252.herokuapp.com' }
 
   #sets paperclip to upload images to Amazon S3
