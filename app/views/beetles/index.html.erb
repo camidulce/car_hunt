@@ -4,13 +4,13 @@
   <thead>
     <tr>
       <th>User</th>
+      <th>Image</th>
       <th>Nickname</th>
       <th>Address</th>
       <th>Year</th>
       <th>Color</th>
       <th>Engine</th>
       <th>Interior</th>
-      <th>Picture</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,13 +20,14 @@
     <% @beetles.each do |beetle| %>
       <tr>
         <td><%= beetle.user.email if beetle.user %></td>
+        <td><%= image_tag beetle.image.url(:medium) %></td>
         <td><%= beetle.nickname %></td>
         <td><%= beetle.address %></td>
         <td><%= beetle.year %></td>
         <td><%= beetle.color %></td>
         <td><%= beetle.engine %></td>
         <td><%= beetle.interior %></td>
-        <td><%= beetle.picture %></td>
+
         <td><%= link_to 'Show', beetle %></td>
         <td><%= link_to 'Edit', edit_beetle_path(beetle) %></td>
         <td><%= link_to 'Destroy', beetle, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -63,6 +63,6 @@ class BeetlesController < ApplicationController
     # end
 
     def beetle_params
-      params.require(:beetle).permit(:nickname, :address, :latitude, :longitude, :zip, :type, :year, :color, :engine, :interior, :picture)
+      params.require(:beetle).permit(:nickname, :address, :latitude, :longitude, :zip, :type, :year, :color, :engine, :interior, :picture, :image)
     end
 end

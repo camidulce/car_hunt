@@ -1,4 +1,4 @@
-<%= form_for(@beetle) do |f| %>
+<%= form_for @beetle, html: { multipart: true } do |f| %>
   <% if @beetle.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@beetle.errors.count, "error") %> prohibited this beetle from being saved:</h2>
@@ -36,8 +36,8 @@
     <%= f.select :interior, ['original','refurbished'] %>
   </div>
   <div class="field">
-    <%= f.label :picture %><br>
-    <%= f.text_field :picture %>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>
