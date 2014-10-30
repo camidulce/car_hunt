@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 
 <p>
@@ -42,6 +42,8 @@
 </p>
 
 
+<% if @beetle.user == current_user %>
+  <%= link_to 'Edit', edit_beetle_path(@beetle) %>
+<% end %>
 
-<%= link_to 'Edit', edit_beetle_path(@beetle) %> |
 <%= link_to 'Back', beetles_path %>
