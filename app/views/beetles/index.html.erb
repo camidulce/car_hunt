@@ -1,5 +1,17 @@
-<h1>Listing beetles</h1>
+<h1>All about Beetles</h1>
 
+<% if user_signed_in? %>
+  <p> Welcome <%= current_user.email %> </p>
+  <p> Create your Beetle profile below: </p>
+  <%= link_to 'New Beetle', new_beetle_path %>
+<% end %>
+
+<br>
+
+<p>
+</p>
+
+<h3>Listing beetles</h3>
 <table>
   <thead>
     <tr>
@@ -18,6 +30,7 @@
   <tbody>
 
     <% @beetles.each do |beetle| %>
+
       <tr>
         <td><%= beetle.user.email if beetle.user %></td>
         <td><%= image_tag beetle.image.url(:medium) %></td>
@@ -29,14 +42,17 @@
         <td><%= beetle.interior %></td>
 
         <td><%= link_to 'Show', beetle %></td>
-        <td><%= link_to 'Edit', edit_beetle_path(beetle) %></td>
-        <td><%= link_to 'Destroy', beetle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if beetle.user == current_user %>
+          <td><%= link_to 'Edit', edit_beetle_path(beetle) %></td>
+          <td><%= link_to 'Destroy', beetle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
 
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Beetle', new_beetle_path %>
+
+

@@ -1,5 +1,7 @@
 class BeetlesController < ApplicationController
   before_action :set_beetle, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @beetles = Beetle.all
@@ -11,7 +13,7 @@ class BeetlesController < ApplicationController
   end
 
   def new
-    @beetle = Beetle.new
+    @beetle = current_user.beetles.build
     # respond_with(@beetle)
   end
 
@@ -38,7 +40,7 @@ class BeetlesController < ApplicationController
 
   def destroy
     if @beetle.destroy
-    redirect_to beetles_path, notice: "Deleted!"
+    redirect_to beetles_url, notice: "Deleted!"
     else
       render beetles_path, notice: "Fail"
     end
@@ -57,10 +59,10 @@ class BeetlesController < ApplicationController
       @beetle = Beetle.find(params[:id])
     end
 
-    # def correct_user
-    #   @beetle = current_user.Beetle.find_by(id: params[:id])
-    #   redirect_to beetles_path, notice: "Not authorized to edit this beetle" if @beetle.nil?
-    # end
+    def correct_user
+      @beetle = current_user.beetles.find_by(id: params[:id])
+      redirect_to beetles_path, notice: "Not authorized to edit this beetle" if @beetle.nil?
+    end
 
     def beetle_params
       params.require(:beetle).permit(:nickname, :address, :latitude, :longitude, :zip, :type, :year, :color, :engine, :interior, :picture, :image)
