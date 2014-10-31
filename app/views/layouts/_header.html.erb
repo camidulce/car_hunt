@@ -1,44 +1,45 @@
-<nav class="navbar navbar-static-top navbar-default" role="navigation">
+<nav class="navbar navbar-inverse navbar-default" role="navigation">
   <div class="container">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
+    <div class="container-fluid">
 
-    <a class="navbar-brand" href="root_path">Beetle Hunt</a>
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <%= link_to "Beetle Hunt", root_path, class: "navbar-brand" %>
+        <!-- <a class="navbar-brand" href="root_path">Beetle Hunt</a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "About", about_path %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign in", new_user_session_path %></li>
+              <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            <% end %>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <div class="form-group"> -->
+          <p>
+          <%= form_tag(beetles_path, :method => "get", id: "search-form") do %>
+          <p>
+            <%= text_field_tag :search, params[:search], placeholder: "Boston, MA" %>
+            <%= submit_tag "Search Near", :name => nil %>
+          </p>
+          <% end %>
+          </p>
+        <ul>
+        <!-- </div> -->
+
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- <div class="collapse navbar-collapse navbar-ex1-collapse"> -->
+
+      </div><!-- /.navbar-collapse -->
   </div>
-
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <div class="form-group">
-      <p>
-      <%= form_tag(beetles_path, :method => "get", id: "search-form") do %>
-      <p>
-        <%= text_field_tag :search, params[:search], placeholder: "Boston, MA" %>
-        <%= submit_tag "Search Near", :name => nil %>
-      </p>
-      <% end %>
-      </p>
-    <ul>
-    </div>
-  </div>
-
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About", about_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
-          <li><%= link_to 'Sign up', new_user_registration_path %></li>
-        <% end %>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-
-
-
-
-</div>
 </nav>
 
 
