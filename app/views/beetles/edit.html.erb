@@ -1,6 +1,16 @@
-<h1>Editing beetle</h1>
+<p> Hi, <%= current_user.email %>. </p>
 
-<%= render 'form' %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h3>Editing beetle</h3>
+  </div>
 
-<%= link_to 'Show', @beetle %> |
-<%= link_to 'Back', beetles_path %>
+  <div class="panel-body">
+    <%= render 'form' %>
+  </div>
+
+  <div class="panel-footer">
+    <%= link_to 'Show', @beetle %> |
+    <%= link_to 'Back', beetles_path %>
+  </div>
+</div>

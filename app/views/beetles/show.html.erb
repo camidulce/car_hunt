@@ -1,49 +1,64 @@
+  <p>
+    Hi, <%= @beetle.user.email if @beetle.user %>.
+  </p>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Beetle Profile</h3>
+    </div>
+
+    <div class="row">
+    <div class="col-md-9 col-md-push-3">
 
 
+      <p><div class="panel body">
+        <strong>Nickname:</strong>
+        <%= @beetle.nickname %>
+      </p>
+      </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @beetle.user.email if @beetle.user %>
-</p>
+      <div class="panel body"><p>
+        <strong>Address:</strong>
+        <%= @beetle.address %>
+      </p></div>
 
-<p>
-  <strong><%= image_tag @beetle.image.url(:medium) %></strong>
+      <p><div class="panel body">
+        <strong>Year:</strong>
+        <%= @beetle.year %>
+      </p></div>
 
-</p>
+      <p><div class="panel body">
+        <strong>Color:</strong>
+        <%= @beetle.color %>
+      </p></div>
 
-<p>
-  <strong>Nickname:</strong>
-  <%= @beetle.nickname %>
-</p>
+      <p><div class="panel body">
+        <strong>Engine:</strong>
+        <%= @beetle.engine %>
+      </p></div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @beetle.address %>
-</p>
+      <p><div class="panel body">
+        <strong>Interior:</strong>
+        <%= @beetle.interior %>
+      </p></div>
+  </div>
 
-<p>
-  <strong>Year:</strong>
-  <%= @beetle.year %>
-</p>
+  <div class="col-md-3 col-md-pull-9">
+    <div class="media">
+    <a class="media-left media-middle">
+    <%= image_tag @beetle.image.url(:medium) %>
+    </a>
+    </div>
+  </div>
 
-<p>
-  <strong>Color:</strong>
-  <%= @beetle.color %>
-</p>
+  </div>
 
-<p>
-  <strong>Engine:</strong>
-  <%= @beetle.engine %>
-</p>
+  <div class="panel-footer">
+  <% if @beetle.user == current_user %>
+    <%= link_to 'Edit', edit_beetle_path(@beetle) %> |
+  <% end %>
 
-<p>
-  <strong>Interior:</strong>
-  <%= @beetle.interior %>
-</p>
+  <%= link_to 'Back', beetles_path %>
+  </div>
 
-
-<% if @beetle.user == current_user %>
-  <%= link_to 'Edit', edit_beetle_path(@beetle) %>
-<% end %>
-
-<%= link_to 'Back', beetles_path %>
+</div>

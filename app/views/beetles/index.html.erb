@@ -1,18 +1,27 @@
-<h1>All about Beetles</h1>
+<div class="container">
 
 <% if user_signed_in? %>
-  <p> Welcome <%= current_user.email %> </p>
-  <p> Create your Beetle profile below: </p>
-  <%= link_to 'New Beetle', new_beetle_path %>
+  <h5> <strong><p> Hi, <%= current_user.email %>. </p></strong></h5>
+<% end %>
+<p>
+</p>
+<h3>All about Beetles</h3>
+
+<p>
+The Volkswagen Beetle or informally the Volkswagen Bug, is a two-door, four passenger, rear-engined economy car manufactured and marketed by German automaker Volkswagen (VW) from 1938.
+</p>
+<br>
+<% if user_signed_in? %>
+
+  <p> CREATE a <%= link_to 'New Beetle', new_beetle_path %> linked to your profile. </p>
+
 <% end %>
 
 <br>
 
-<p>
-</p>
+<h4>Beetles Listing</h4>
+<table class="table">
 
-<h3>Listing beetles</h3>
-<table>
   <thead>
     <tr>
       <th>User</th>
@@ -52,6 +61,8 @@
     <% end %>
   </tbody>
 </table>
+
+</div>
 
 
 

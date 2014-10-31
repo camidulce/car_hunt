@@ -3,6 +3,7 @@
     <div id="error_explanation">
       <h2><%= pluralize(@beetle.errors.count, "error") %> prohibited this beetle from being saved:</h2>
 
+
       <ul>
       <% @beetle.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,35 +12,50 @@
     </div>
   <% end %>
 
+  <div class="form-group">
   <div class="field">
     <%= f.label :nickname %><br>
-    <%= f.text_field :nickname %>
+    <%= f.text_field :nickname, class: "form-control"  %>
   </div>
+  </div>
+  <div class="form-group">
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.label :address %> (town, state)<br>
+    <%= f.text_field :address, class: "form-control"  %>
   </div>
+  </div>
+  <div class="form-group">
   <div class="field">
     <%= f.label :year %><br>
     <%= f.date_select :year, {:start_year => Time.now.year - 40, :end_year => Time.now.year, :discard_day => true, :discard_month => true } %>
   </div>
+  </div>
+  <div class="form-group">
   <div class="field">
     <%= f.label :color %><br>
-    <%= f.text_field :color %>
+    <%= f.text_field :color, class: "form-control"  %>
   </div>
+  </div>
+  <div class="form-group">
   <div class="field">
     <%= f.label :engine %><br>
     <%= f.select :engine, ['Gas', 'Diesel'] %>
   </div>
+  </div>
+  <div class="form-group">
   <div class="field">
     <%= f.label :interior %><br>
     <%= f.select :interior, ['original','refurbished'] %>
   </div>
+  </div>
+  <div class="form-group">
   <div class="field">
     <%= f.label :image %><br>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, class: "img-thumbnail" %>
+  </div>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
